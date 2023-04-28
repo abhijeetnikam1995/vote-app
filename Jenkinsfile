@@ -1,3 +1,4 @@
+/*
 node {
     def app
 
@@ -6,14 +7,7 @@ node {
 
         checkout scm
     }
-    stage('Build App Image') {
-            steps {
-                script {
-			sh 'pwd'
-                  //  dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", "./vprofile-docker/Docker-files/app/multistage/")
-                }
-            }
-        }
+
 
     stage('Build image') {
   
@@ -40,3 +34,13 @@ node {
                 build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
 }
+*/
+
+stage('Build App Image') {
+            steps {
+                script {
+			sh 'pwd'
+                }
+            }
+        }
+

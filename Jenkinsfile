@@ -1,40 +1,4 @@
-/*
-node {
-    def app
 
-    stage('Clone repository') {
-      
-
-        checkout scm
-    }
-
-
-    stage('Build image') {
-  
-       app = docker.build("abhijeetnikam1995/front")
-    }
-
-    stage('Test image') {
-  
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
-
-    stage('Push image') {
-        
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
-        }
-    }
-    
-    stage('Trigger ManifestUpdate') {
-                echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
-        }
-}
-*/
 
 def COLOR_MAP = [
     'SUCCESS': 'good', 
@@ -42,11 +6,7 @@ def COLOR_MAP = [
 ]
 pipeline {
     agent any
-    tools {
-       maven "MAVEN3"
-        jdk "OracleJDK8"
-    }
-    
+  
     environment {
 
         registryCredential = 'ecr:us-east-1:awscreds'

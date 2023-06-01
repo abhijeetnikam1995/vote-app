@@ -24,10 +24,10 @@ pipeline {
 		    withAWS(credentials:'awscreds', region:'us-east-1') {
                 sh 'python3 temp.py'
 		    }
+                  }
             }
-        }
 	}
-}
+
 	   
 	 
 	   

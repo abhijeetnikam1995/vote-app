@@ -12,8 +12,8 @@ pipeline {
         registryCredential = 'ecr:us-east-1:awscreds'
         appRegistry = '502447419870.dkr.ecr.us-east-1.amazonaws.com/dockerdemo'
         vprofileRegistry = "https://502447419870.dkr.ecr.us-east-1.amazonaws.com/dockerdemo"
-	cluster = "vprostaging"
-        service = "vproappstagesvc"
+	cluster = "myapp-cluster"
+        service = "testapp-service"
 	    
     }
 

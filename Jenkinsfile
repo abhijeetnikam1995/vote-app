@@ -18,45 +18,13 @@ pipeline {
 	  
     }
 
-    stages {
-    
-       
-
-        
-        stage('Build App Image') {
+   stages {
+        stage('Run Python Script') {
             steps {
-                script {
-			sh 'pwd'
-                    dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", "./")
-                }
+                sh 'python3 test.py'
             }
         }
-        
-        stage('Upload App Image') {
-          steps{
-            script {
-              docker.withRegistry( vprofileRegistry, registryCredential ) {
-                dockerImage.push("$BUILD_NUMBER")
-                dockerImage.push('latest')
-              }
-            }
-          }
-        }
-
-        stage('Deploy to ECS staging') {
-            steps {
-		     script {
-              //  withAWS(credentials: 'awscreds', region: 'us-east-1') {
-                    sh 'aws ecs update-service --region ${region} --cluster ${cluster} --service ${service} --force-new-deployment'
-		//}
-                } 
-            }
-        }
-	    
-	    
-	    
     }
-
 }
 
 

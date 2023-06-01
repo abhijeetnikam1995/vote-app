@@ -15,8 +15,7 @@ pipeline {
 	cluster = "myapp-cluster"
         service = "testapp-service"
 	    region = "us-east-1"
-	      AWS_ACCESS_KEY_ID="AKIAXJ7BTGHPNC77FZVV"
-  AWS_SECRET_ACCESS_KEY="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"
+	  
     }
 
     stages {

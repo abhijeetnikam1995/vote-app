@@ -14,7 +14,7 @@ pipeline {
         vprofileRegistry = "https://502447419870.dkr.ecr.us-east-1.amazonaws.com/dockerdemo"
 	cluster = "myapp-cluster"
         service = "testapp-service"
-	    
+	    region = "us-east-1"
     }
 
     stages {
@@ -45,9 +45,9 @@ pipeline {
         stage('Deploy to ECS staging') {
             steps {
 		     script {
-                withAWS(credentials: 'awscreds', region: 'us-east-1') {
-                    sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
-		}
+              //  withAWS(credentials: 'awscreds', region: 'us-east-1') {
+                    sh 'aws ecs update-service --region ${region} --cluster ${cluster} --service ${service} --force-new-deployment'
+		//}
                 } 
             }
         }

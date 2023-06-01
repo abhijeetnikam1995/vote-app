@@ -21,7 +21,7 @@ pipeline {
    stages {
         stage('Run Python Script') {
             steps {
-		    withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+		    withAWS(credentials: 'awscreds', region: 'us-east-1') {
                 sh 'python3 temp.py'
 		    }
             }

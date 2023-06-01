@@ -24,6 +24,7 @@ pipeline {
                 sh 'python3 temp.py'
             }
         }
+	}
 	   */
 	   
 	   
@@ -43,7 +44,7 @@ pipeline {
 	   
 	   
 	   
-    }
+    
 }
 
 

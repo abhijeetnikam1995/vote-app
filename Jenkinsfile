@@ -17,13 +17,32 @@ pipeline {
 	    region = "us-east-1"
 	  
     }
-
+/*
    stages {
         stage('Run Python Script') {
             steps {
                 sh 'python3 temp.py'
             }
         }
+	   */
+	   
+	   
+	           stage('hello AWS') {
+            steps {
+                withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+                  sh 'python3 temp.py'
+                }
+            }
+        }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
     }
 }
 

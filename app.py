@@ -7,7 +7,7 @@ import json
 import logging
 
 option_a = os.getenv('OPTION_A', "messi")
-option_b = os.getenv('OPTION_B', "ronaldo")
+option_b = os.getenv('OPTION_B', "abhijeet")
 hostname = socket.gethostname()
 
 app = Flask(__name__)

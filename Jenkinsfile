@@ -36,9 +36,10 @@ pipeline {
                 }
             }
         }
-stage('Test'){
+stage('trigger'){
             steps {
                  echo 'Empty'
+                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
             }
         }
 
